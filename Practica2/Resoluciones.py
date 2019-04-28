@@ -1,7 +1,5 @@
 from Practica2.Ejercicio11 import Ejercicio11
-# from Practica2.Ejercicio14 import Ejercicio14
-import numpy as np
-from numpy import matlib
+from Practica2.Ejercicio14 import Ejercicio14
 
 print()
 print("Ejercicio 11:")
@@ -18,9 +16,10 @@ ejercicio14.ejecucion([[0, 8, 9],
                        [5, 7, 3],
                        [0, 0, -5]], [3, 7, 1])
 # [0.6, 0.68, -0.2]
-# print()
-# print("Ejercicio 14:")
-# ejercicio14 = Ejercicio14()
-# ejercicio14.ejecucion([[-1, 1, -4],
-#                       [2,  2,  0],
-#                       [3,  3,  2]])
+
+print()
+print("Ejercicio 14:")
+ejercicio14 = Ejercicio14()
+ejercicio14.ejecucion([[-1, 1, -4],
+                       [2,  2,  0],
+                       [3,  3,  2]], [])
