@@ -32,29 +32,42 @@ class Ejercicio14:
         pivote = coeficientes[pivote, columna]
         operaciones = []
         for fila in filas_restantes:
-            operaciones.append(-(coeficientes[fila, columna] / pivote))
+            operaciones.append(coeficientes[fila, columna] / pivote)
         return operaciones
 
     def restar_filas(self, coeficientes, pivote, fila, operacion):
-        coeficientes[fila] = coeficientes[fila] + coeficientes[pivote] * operacion
+        coeficientes[fila] = coeficientes[fila] - coeficientes[pivote] * operacion
         return coeficientes
 
     def descomponer_lower_upper(self, coeficientes):
         n = len(coeficientes)
         radios = self.calcular_radios(coeficientes)
         pivotes = []
-        filas_restantes = np.arange(n).tolist()
-        # lista con los "E" aplicados
-        operaciones = []
+        permutaciones = list(np.arange(n))
+        filas_restantes = list(np.arange(n))
+        upper = coeficientes.copy()
+        lower = np.matlib.zeros((n, n))
+        for i in range(0, n):
+            lower[i, i] = 1
         for columna in range(0, n - 1):
-            pivote = self.obtener_pivote(coeficientes, columna, radios, filas_restantes)
+            pivote = self.obtener_pivote(upper, columna, radios, filas_restantes)
+            permutaciones[columna], permutaciones[permutaciones[pivote]] = \
+                permutaciones[permutaciones[pivote]], permutaciones[columna]
             pivotes.append(pivote)
-            operaciones.append(self.calcular_operaciones(coeficientes, pivote, filas_restantes, columna))
-            print(operaciones)
+            operaciones = self.calcular_operaciones(upper, pivote, filas_restantes, columna)
             for i, fila in enumerate(filas_restantes):
-                self.restar_filas(coeficientes, pivote, fila, operaciones[columna][i])
-            print(coeficientes)
-        return coeficientes
+                lower[n - i - 1, columna] = operaciones[i]
+                self.restar_filas(upper, pivote, fila, operaciones[i])
+
+        # Permutar upper
+        for i, permutacion in enumerate(permutaciones):
+            if i < permutacion:
+                upper[i], upper[permutacion] = upper[permutacion], np.copy(upper[i])
+
+        return lower, upper, permutaciones
 
     def ejecucion(self, coeficientes, resultados):
-        self.descomponer_lower_upper(coeficientes)
+        lower, upper, permutaciones = self.descomponer_lower_upper(coeficientes)
+        print('lower', lower)
+        print('upper', upper)
+        print('permutaciones', permutaciones)
