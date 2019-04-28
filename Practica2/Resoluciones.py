@@ -23,4 +23,5 @@ print("Ejercicio 14:")
 ejercicio14 = Ejercicio14()
 ejercicio14.ejecucion(np.matrix([[-1, 1, -4],
                                  [2, 2, 0],
-                                 [3, 3, 2]]), [])
+                                 [3, 3, 2]]), [0, 1, 0.5])
+# [-1, 1, 0.25]

@@ -66,8 +66,32 @@ class Ejercicio14:
 
         return lower, upper, permutaciones
 
+    def calcular_variables_lower(self, coeficientes, resultados):
+        n = len(coeficientes)
+        variables = np.zeros(n)
+        for i in range(0, n):
+            variables[i] = resultados[i]
+            for j in range(0, i):
+                variables[i] -= coeficientes[i, n - j - 1] * variables[j]
+            variables[i] /= coeficientes[i, i]
+        return variables
+
+    def calcular_variables_upper(self, coeficientes, resultados):
+        n = len(coeficientes)
+        variables = np.zeros(n)
+        for i in range(n - 1, -1, -1):
+            variables[i] = resultados[i]
+            for j in range(n - 1, i, - 1):
+                variables[i] -= coeficientes[i, j] * variables[j]
+            variables[i] /= coeficientes[i, i]
+        return variables
+
     def ejecucion(self, coeficientes, resultados):
         lower, upper, permutaciones = self.descomponer_lower_upper(coeficientes)
-        print('lower', lower)
-        print('upper', upper)
-        print('permutaciones', permutaciones)
+        print('lower\n', lower)
+        print('upper\n', upper)
+        print('permutaciones\n', permutaciones)
+        y = self.calcular_variables_lower(lower, resultados)
+        print('y (Ly=b)\n', y)
+        variables = self.calcular_variables_upper(upper, y)
+        print('variables\n', variables)
