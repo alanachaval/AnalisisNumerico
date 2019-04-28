@@ -26,7 +26,6 @@ class Ejercicio11:
         return variables
 
     def ejecucion(self, coeficientes, resultados):
-        coeficientes = np.matrix(coeficientes)
         pivotes = self.obtener_indices_pivotes(coeficientes)
         variables = self.calcular_variables(coeficientes, resultados, pivotes)
         print(variables)
