@@ -2,6 +2,7 @@ from Practica2.Ejercicio7 import Ejercicio7
 from Practica2.Ejercicio11 import Ejercicio11
 from Practica2.Ejercicio14 import Ejercicio14
 from Practica2.Ejercicio16 import Ejercicio16
+from Practica2.Ejercicio17 import Ejercicio17
 import numpy as np
 
 print()
@@ -46,3 +47,10 @@ ejercicio16 = Ejercicio16()
 ejercicio16.ejecucion(np.matrix([[2., -1., 0.],
                                  [1., 6., -2.],
                                  [4., -3., 8.]]), np.matrix([[2.], [-4.], [5.]]), 25)
+
+print()
+print("Ejercicio 17:")
+ejercicio17 = Ejercicio17()
+ejercicio17.ejecucion(np.matrix([[2., -1., 0.],
+                                 [1., 6., -2.],
+                                 [4., -3., 8.]]))
