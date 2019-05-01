@@ -7,9 +7,9 @@ class Ejercicio16:
     # x: vector de variables
     # b: vector de resultados
 
-    def optimizar(self, coeficientes, resultados):
-        a = coeficientes.copy()
-        b = resultados.copy()
+    def optimizar(self, a, b):
+        a = a.copy()
+        b = b.copy()
         n = len(a)
         for i in range(n):
             d = 1 / a[i, i]
@@ -36,6 +36,8 @@ class Ejercicio16:
         return x
 
     def ejecucion(self, coeficientes, resultados, terminos):
+        coeficientes = np.matrix(coeficientes)
+        resultados = np.matrix(resultados)
         a, b = self.optimizar(coeficientes, resultados)
         print('Inicio Jacobi')
         variables = self.jacobi(a, b, terminos)

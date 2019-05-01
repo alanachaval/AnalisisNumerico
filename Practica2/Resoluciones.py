@@ -44,13 +44,13 @@ ejercicio14.ejecucion(np.matrix([[1., 6., 0.],
 print()
 print("Ejercicio 16:")
 ejercicio16 = Ejercicio16()
-ejercicio16.ejecucion(np.matrix([[2., -1., 0.],
-                                 [1., 6., -2.],
-                                 [4., -3., 8.]]), np.matrix([[2.], [-4.], [5.]]), 25)
+ejercicio16.ejecucion([[2., -1., 0.],
+                       [1., 6., -2.],
+                       [4., -3., 8.]], [[2.], [-4.], [5.]], 25)
 
 print()
 print("Ejercicio 17:")
 ejercicio17 = Ejercicio17()
-ejercicio17.ejecucion(np.matrix([[2., -1., 0.],
-                                 [1., 6., -2.],
-                                 [4., -3., 8.]]))
+ejercicio17.ejecucion([[2., -1., 0.],
+                       [1., 6., -2.],
+                       [4., -3., 8.]])

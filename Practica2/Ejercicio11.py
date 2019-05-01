@@ -19,18 +19,18 @@ class Ejercicio11:
 
     def calcular_variables(self, a, b, pivotes):
         n = len(a)
-        variables = np.zeros(n)
+        x = np.zeros(n)
         for i in range(n):
-            variables[pivotes[i]] = b[pivotes[i]]
+            x[pivotes[i]] = b[pivotes[i]]
             for j in range(0, i):
-                variables[pivotes[i]] -= a[pivotes[i], n - j - 1] * variables[pivotes[j]]
-            variables[pivotes[i]] /= a[pivotes[i], n - i - 1]
-        return variables
+                x[pivotes[i]] -= a[pivotes[i], n - j - 1] * x[pivotes[j]]
+            x[pivotes[i]] /= a[pivotes[i], n - i - 1]
+        return x
 
     def ejecucion(self, coeficientes, resultados):
         a = np.matrix(coeficientes)
         b = np.matrix(resultados)
         pivotes = self.obtener_indices_pivotes(a)
-        x = self.calcular_variables(a, b, pivotes)
-        print(x)
-        return x
+        variables = self.calcular_variables(a, b, pivotes)
+        print(variables)
+        return variables

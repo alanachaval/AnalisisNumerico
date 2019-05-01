@@ -16,8 +16,7 @@ class Ejercicio17:
         n = len(coeficientes)
         q_gauss_seidel = np.matlib.zeros((n, n))
         for i in range(n):
-            q_gauss_seidel[i, i] = coeficientes[i, i]
-            for j in range(0, i):
+            for j in range(0, i + 1):
                 q_gauss_seidel[i, j] = coeficientes[i, j]
         q_gauss_seidel = np.linalg.inv(q_gauss_seidel)
         return q_gauss_seidel
@@ -30,6 +29,7 @@ class Ejercicio17:
         return ejercicio7.formula_cerrada(espectro.tolist())
 
     def ejecucion(self, coeficientes):
+        coeficientes = np.matrix(coeficientes)
         q_jacobi = self.jacobi(coeficientes)
         espectro_jacobi = self.calcular_espectro(q_jacobi, coeficientes)
         print('Espectro Jacobi:', espectro_jacobi, end=' => ')
