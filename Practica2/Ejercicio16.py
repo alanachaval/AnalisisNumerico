@@ -4,7 +4,7 @@ from numpy import matlib
 
 class Ejercicio16:
 
-    # A: Matriz de coeficientes
+    # a: Matriz de coeficientes
     # x: vector de variables
     # b: vector de resultados
 
@@ -14,50 +14,22 @@ class Ejercicio16:
         n = len(a)
         for i in range(n):
             d = 1 / a[i, i]
-            print(d)
-            print(b)
             b[i] *= d
-            print(b)
-            print(a)
-            a[i, :] = a[i, :] * d
-            print(a)
+            a[i, :] *= d
+            a[i, i] = 0  # para permitir operar con multiplicaciones matriciales
         return a, b
 
-    # def jacobi(self, matriz, resultados, terminos):
-    #     n = len(matriz)
-    #     variables = np.random.uniform(-1, 1, (n, 1))
-    #     temporal = variables.copy()
-    #     for k in range(terminos):
-    #         for i in range(n):
-    #             temporal[i] = resultados[i]
-    #             t = 0
-    #             for j in range(n):
-    #                 if j != i:
-    #                     t += matriz[i, j] * variables[j]
-    #             temporal[i] -= t
-    #             temporal[i] /= matriz[i, i]
-    #         variables = temporal.copy()
-    #         print('Termino ', k + 1, '\n', variables)
-    #     return variables
-
-    def jacobi(self, matriz, resultados, terminos):
-        n = len(matriz)
-        variables = np.random.uniform(-1, 1, (n, 1))
-        temporal = variables.copy()
+    def jacobi(self, a, b, terminos):
+        n = len(a)
+        x = np.random.uniform(-1, 1, (n, 1))
         for k in range(terminos):
-            for i in range(n):
-                temporal[i] = resultados[i]
-                t = 0
-                for j in range(n):
-                    if j != i:
-                        t += matriz[i, j] * variables[j]
-                temporal[i] -= t
-            variables = temporal.copy()
-            print('Termino ', k + 1, '\n', variables)
-        return variables
+            x = b - a * x
+            print('Termino ', k + 1, '\n', x)
+        return x
 
     def ejecucion(self, coeficientes, resultados, terminos):
         a, b = self.optimizar(coeficientes, resultados)
+        print('Inicio Jacobi')
         variables = self.jacobi(a, b, terminos)
         print('coeficientes * variables\n', coeficientes * variables)
 
