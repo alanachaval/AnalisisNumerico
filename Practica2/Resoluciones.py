@@ -3,7 +3,6 @@ from Practica2.Ejercicio11 import Ejercicio11
 from Practica2.Ejercicio14 import Ejercicio14
 from Practica2.Ejercicio16 import Ejercicio16
 from Practica2.Ejercicio17 import Ejercicio17
-import numpy as np
 
 print()
 print("Ejercicio 7:")
@@ -18,27 +17,33 @@ ejercicio11 = Ejercicio11()
 ejercicio11.ejecucion([[1., 0., 0.],
                        [0., 1., 0.],
                        [0., 0., 1.]], [[2.], [3.], [4.]])
-# [2., 3., 4.]
+# [[2.]
+#  [3.]
+#  [4.]]
 ejercicio11.ejecucion([[5., 7., 3.],
                        [0., 8., 9.],
                        [0., 0., -5.]], [[7.], [3.], [1.]])
-# [0.68, 0.6, -0.2]
+# [[ 0.68]
+#  [ 0.6 ]
+#  [-0.2 ]]
 ejercicio11.ejecucion([[0., 8., 9.],
                        [5., 7., 3.],
                        [0., 0., -5.]], [[3.], [7.], [1.]])
-# [0.6, 0.68, -0.2]
+# [[ 0.68]
+#  [ 0.6 ]
+#  [-0.2 ]]
 
 print()
 print("Ejercicio 14:")
 ejercicio14 = Ejercicio14()
-ejercicio14.ejecucion(np.matrix([[-1., 1., -4.],
-                                 [2., 2., 0.],
-                                 [3., 3., 2.]]), [0., 1., 0.5])
+# ejercicio14.ejecucion([[-1., 1., -4.],
+#                       [2., 2., 0.],
+#                       [3., 3., 2.]], [[0.], [1.], [0.5]])
 # [1.25, 0.5, -1]
 
-ejercicio14.ejecucion(np.matrix([[1., 6., 0.],
-                                 [2., 1., 0.],
-                                 [0., 2., 1.]]), [3., 1., 1.])
+# ejercicio14.ejecucion([[1., 6., 0.],
+#                       [2., 1., 0.],
+#                       [0., 2., 1.]], [[3.], [1.], [1.]])
 # [-1, 1, 0.25]
 
 print()

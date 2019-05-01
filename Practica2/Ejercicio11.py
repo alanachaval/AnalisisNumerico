@@ -1,9 +1,10 @@
 import numpy as np
+from numpy import matlib
 
 
 class Ejercicio11:
 
-    # a: Matriz de coeficientes
+    # a: matriz de coeficientes
     # x: vector de variables
     # b: vector de resultados
 
@@ -19,18 +20,22 @@ class Ejercicio11:
 
     def calcular_variables(self, a, b, pivotes):
         n = len(a)
-        x = np.zeros(n)
+        x = np.matlib.zeros((n, 1))
         for i in range(n):
-            x[pivotes[i]] = b[pivotes[i]]
+            x[i] = b[pivotes[i]]
             for j in range(0, i):
-                x[pivotes[i]] -= a[pivotes[i], n - j - 1] * x[pivotes[j]]
-            x[pivotes[i]] /= a[pivotes[i], n - i - 1]
+                x[i] -= a[pivotes[i], n - j - 1] * x[j]
+            x[i] /= a[pivotes[i], n - i - 1]
+        x = np.flip(x)
         return x
 
     def ejecucion(self, coeficientes, resultados):
         a = np.matrix(coeficientes)
+        print('coeficientes\n', a)
         b = np.matrix(resultados)
         pivotes = self.obtener_indices_pivotes(a)
-        variables = self.calcular_variables(a, b, pivotes)
-        print(variables)
-        return variables
+        x = self.calcular_variables(a, b, pivotes)
+        print('variables\n', x)
+        print('resultado esperado\n', b)
+        print('resultado obtenido (coeficientes * variables)\n', a * x)
+        return x

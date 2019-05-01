@@ -3,7 +3,7 @@ import numpy as np
 
 class Ejercicio16:
 
-    # a: Matriz de coeficientes
+    # a: matriz de coeficientes
     # x: vector de variables
     # b: vector de resultados
 
@@ -41,7 +41,9 @@ class Ejercicio16:
         a, b = self.optimizar(coeficientes, resultados)
         print('Inicio Jacobi')
         variables = self.jacobi(a, b, terminos)
-        print('coeficientes * variables\n', coeficientes * variables)
+        print('resultado esperado\n', resultados)
+        print('resultado obtenido (coeficientes * variables)\n', coeficientes * variables)
         print('Inicio Gauss-Seidel')
         variables = self.gauss_seidel(a, b, terminos)
-        print('coeficientes * variables\n', coeficientes * variables)
+        print('resultado esperado\n', resultados)
+        print('resultado obtenido (coeficientes * variables)\n', coeficientes * variables)
