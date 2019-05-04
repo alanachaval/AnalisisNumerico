@@ -3,7 +3,6 @@ from Practica2.Ejercicio11 import Ejercicio11
 from Practica2.Ejercicio14 import Ejercicio14
 from Practica2.Ejercicio15 import Ejercicio15
 from Practica2.Ejercicio16 import Ejercicio16
-from Practica2.Ejercicio17 import Ejercicio17
 
 print()
 print("Ejercicio 7:")
@@ -11,6 +10,7 @@ ejercicio7 = Ejercicio7()
 ejercicio7.ejecucion([[1., 2., 3.],
                       [4., 5., 9.],
                       [7., 8., 6.]], 10000)
+# 21.0
 
 print()
 print("Ejercicio 11:")
@@ -47,7 +47,9 @@ ejercicio14.ejecucion([[-1., 1., -4.],
 ejercicio14.ejecucion([[1., 6., 0.],
                        [2., 1., 0.],
                        [0., 2., 1.]], [[3.], [1.], [1.]])
-# [-1, 1, 0.25]
+# [[0.27272727]
+#  [0.45454545]
+#  [0.09090909]]
 
 print()
 print("Ejercicio 15:")
@@ -55,17 +57,16 @@ ejercicio15 = Ejercicio15()
 ejercicio15.ejecucion([[1., .5, 1. / 3.],
                        [1. / 3., 1., .5],
                        [.5, 1. / 3., 1.]], [[11. / 8.], [11. / 8.], [11. / 8.]], 100)
+# [[0.75]
+#  [0.75]
+#  [0.75]]
 
 print()
-print("Ejercicio 16:")
+print("Ejercicio 16/17:")
 ejercicio16 = Ejercicio16()
 ejercicio16.ejecucion([[2., -1., 0.],
                        [1., 6., -2.],
                        [4., -3., 8.]], [[2.], [-4.], [5.]], 25)
-
-print()
-print("Ejercicio 17:")
-ejercicio17 = Ejercicio17()
-ejercicio17.ejecucion([[2., -1., 0.],
-                       [1., 6., -2.],
-                       [4., -3., 8.]])
+# [[ 0.62]
+#  [-0.76]
+#  [ 0.03]]
