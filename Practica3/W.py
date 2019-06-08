@@ -14,5 +14,4 @@ class W:
         tau = 0  # PENDIENTE
         x = math.log((s + self.d(0)) / self.d(0))
         a = math.log((self.k + self.d(t)) / self.d(t))
-        # CORREGIR INTEGRAL
-        return (self.d(t) + self.k) * (math.e ** -((self.t - t) * self.r(s))) * self.v(tau, x - a)
+        return (self.d(self.t) + self.k) * (math.e ** -self.r(t, s)) * self.v(tau, x - a)
