@@ -4,5 +4,5 @@ class R:
         self.r = r
         self.t = t
 
-    def evaluar(self, t, s):
+    def evaluar(self, t):
         return (self.t - t) * self.r
