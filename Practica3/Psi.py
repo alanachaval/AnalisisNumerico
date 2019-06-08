@@ -10,7 +10,18 @@ class Psi:
         def evaluar(x):
             return e * (x ** 4) + d * (x ** 3) + c * (x ** 2) + b * x + a
 
-        self.cero = solver(evaluar, None, -1.0 / eta.n)
-        self.uno = solver(evaluar, -1.0 / eta.n, 0)
-        self.dos = solver(evaluar, 0, 1.0 / eta.p)
-        self.tres = solver(evaluar, 1.0 / eta.p, None)
+        ratio = 10
+        i_uno = -1.0 / eta.n
+        self.uno = solver(evaluar, i_uno, 0)
+        i_cero = i_uno * ratio
+        while evaluar(i_uno) * evaluar(i_cero) > 0:
+            i_uno = i_cero
+            i_cero = i_uno * ratio
+        self.cero = solver(evaluar, i_cero, i_uno)
+        i_dos = 1.0 / eta.p
+        self.dos = solver(evaluar, 0, i_dos)
+        i_tres = i_dos * ratio
+        while evaluar(i_tres) * evaluar(i_dos) > 0:
+            i_dos = i_tres
+            i_tres = i_dos * ratio
+        self.tres = solver(evaluar, i_dos, i_tres)
