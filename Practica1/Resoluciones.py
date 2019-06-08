@@ -1,10 +1,10 @@
-from Practica1.Ejercicio11 import Ejercicio11
-from Practica1.Ejercicio5 import Ejercicio5
-from Practica1.Ejercicio6 import Ejercicio6
-from Practica1.Ejercicio7 import Ejercicio7
-from Practica1.Ejercicio8 import Ejercicio8
-from Practica1.Ejercicio9 import Ejercicio9
-from Practica1.Ejercicio10 import Ejercicio10
+from Ejercicio11 import Ejercicio11
+from Ejercicio5 import Ejercicio5
+from Ejercicio6 import Ejercicio6
+from Ejercicio7 import Ejercicio7
+from Ejercicio8 import Ejercicio8
+from Ejercicio9 import Ejercicio9
+from Ejercicio10 import Ejercicio10
 
 print()
 print("Ejercicio 5:")

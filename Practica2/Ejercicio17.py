@@ -1,4 +1,4 @@
-from Practica2.Ejercicio7 import Ejercicio7
+from Ejercicio7 import Ejercicio7
 import numpy as np
 from numpy import matlib
 

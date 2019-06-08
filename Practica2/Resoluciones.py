@@ -1,8 +1,8 @@
-from Practica2.Ejercicio7 import Ejercicio7
-from Practica2.Ejercicio11 import Ejercicio11
-from Practica2.Ejercicio14 import Ejercicio14
-from Practica2.Ejercicio15 import Ejercicio15
-from Practica2.Ejercicio16 import Ejercicio16
+from Ejercicio7 import Ejercicio7
+from Ejercicio11 import Ejercicio11
+from Ejercicio14 import Ejercicio14
+from Ejercicio15 import Ejercicio15
+from Ejercicio16 import Ejercicio16
 
 print()
 print("Ejercicio 7:")
