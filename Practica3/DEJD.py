@@ -1,21 +1,25 @@
-from A import A
-from B import B
-from C import C
-from D import D
-from Eta import Eta
-from Psi import Psi
-from Q import Q
-from U import U
-from V import V
-from W import W
+from Practica3.A import A
+from Practica3.Alfa import Alfa
+from Practica3.B import B
+from Practica3.C import C
+from Practica3.D import D
+from Practica3.Eta import Eta
+from Practica3.Mu import Mu
+from Practica3.Psi import Psi
+from Practica3.Q import Q
+from Practica3.U import U
+from Practica3.V import V
+from Practica3.W import W
 
 
 class DEJD:
 
-    def __init__(self, eta_n, eta_p, mu, lamda, q_n, q_p, root_solver, r, div, kappa, t, v_griega, d_cero):
+    def __init__(self, eta_n, eta_p, lamda, q_p, root_solver, r, div, kappa, t, v_griega, d_cero):
         eta = Eta(eta_n, eta_p)
-        q = Q(q_n, q_p)
+        q = Q(q_p)
         p = t * v_griega
+        alfa = Alfa.evaluar(q, eta)
+        mu = Mu.evaluar(lamda, alfa)
         psi = Psi(eta, mu, p, lamda, q, root_solver)
         c = C(psi, eta, p)
         d = D.evaluar(d_cero, r, div, t)
