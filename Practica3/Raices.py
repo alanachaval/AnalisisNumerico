@@ -11,7 +11,7 @@ class Raices:
                     b = x
                 else:
                     a = x
-            else if f(x) * f(a) < 0:
+            elif f(x) * f(a) < 0:
                 x = (x + a) / 2
                 b = x
 
