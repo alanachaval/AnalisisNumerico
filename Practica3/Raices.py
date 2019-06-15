@@ -14,4 +14,3 @@ class Raices:
             elif f(x) * f(a) < 0:
                 x = (x + a) / 2
                 b = x
-

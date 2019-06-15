@@ -1,6 +1,6 @@
 class Psi:
 
-    def __init__(self, eta, mu, p, lamda, q, solver):
+    def __init__(self, eta, mu, lamda, q, p, solver):
         a = p
         b = (-mu + (p + lamda) * (eta.n - eta.p) - lamda * (q.p * eta.n - q.n * eta.p))
         c = -(0.5 + mu * (eta.n - eta.p) + (p + lamda) * eta.n * eta.p)
@@ -25,5 +25,3 @@ class Psi:
             i_dos = i_tres
             i_tres = i_dos * ratio
         self.tres = solver(evaluar, i_dos, i_tres)
-
-

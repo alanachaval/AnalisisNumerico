@@ -1,6 +1,6 @@
 class A:
 
-    def __init__(self, psi, eta, c, b):
+    def __init__(self, eta, b, psi, c):
         self.dos = (1 + psi.dos * eta.n) / (psi.tres - psi.dos) * (
                 ((psi.cero - psi.tres) * (c.cero ** ((psi.cero - psi.dos) ** b))) / (psi.cero * eta.n + 1) +
                 ((psi.uno - psi.tres) * (c.uno ** ((psi.uno - psi.dos) ** b))) / (psi.uno * eta.n + 1)

@@ -3,7 +3,7 @@ import numpy as np
 
 class C:
 
-    def __init__(self, psi, eta, p):
+    def __init__(self, eta, p, psi):
         coeficientes = np.array(
             [(1, 1, -1, -1),
              (psi.cero, psi.uno, -psi.dos, -psi.tres),
