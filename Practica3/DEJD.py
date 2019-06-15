@@ -9,14 +9,14 @@ from Practica3.W import W
 
 class DEJD:
 
-    def __init__(self, eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, t_, solver):
+    def __init__(self, eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, t_, solver, rtol):
         eta = Eta(eta_n, eta_p)
         q = Q(q_p)
         alfa = Alfa.evaluar(q, eta)
         mu = Mu.evaluar(lamda, alfa)
         d_t = D.evaluar(d_cero, r_, div, t_)
         b = B.evaluar(d_t, kappa)
-        self.w = W(eta, mu, lamda, q, b, d_cero, d_t, kappa, r, nu_cero, nu_inf, solver)
+        self.w = W(eta, mu, lamda, q, b, d_cero, d_t, kappa, r, nu_cero, nu_inf, solver, rtol)
 
     def evaluar(self, t, s):
         return self.w.evaluar(t, s)

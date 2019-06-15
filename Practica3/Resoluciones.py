@@ -1,3 +1,4 @@
+import math
 from scipy import optimize
 
 from Practica3.DEJD import DEJD
@@ -19,8 +20,10 @@ d_cero = 32.5
 s_cero = 25.86
 # Fin Parametros
 
+rtol = 1.0e-10
+
 solver = optimize.brentq
 
-dejd = DEJD(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, t_, solver)
+dejd = DEJD(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, t_, solver, rtol)
 
 print(dejd.evaluar(t_, s_cero))
