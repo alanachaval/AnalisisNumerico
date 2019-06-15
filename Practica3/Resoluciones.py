@@ -27,7 +27,7 @@ parametros.solver = optimize.brentq
 
 # Default
 parametros.k = 50
-tiempo = np.linspace(2, 10, 600)
+tiempo = np.linspace(0.01, 30, 600)
 default = np.zeros((len(tiempo), 1))
 
 for i, t_ in enumerate(tiempo):
@@ -39,7 +39,7 @@ f1.canvas.set_window_title('Default')
 plot.plot(tiempo, default)
 
 # Opcion
-parametros.t_ = 1.2
+parametros.t_ = 1/12
 strike = np.linspace(8, 55, 600)
 opcion = np.zeros((len(strike), 1))
 

@@ -9,4 +9,4 @@ class DEJD:
 
     @staticmethod
     def evaluar_default(t, s, parametros):
-        return W.evaluar_default(t, s, parametros)
+        return 1 - W.evaluar_default(t, s, parametros)

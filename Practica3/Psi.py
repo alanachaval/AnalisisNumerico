@@ -27,18 +27,18 @@ class Psi:
 
         ratio = 10
         i_uno = -1.0 / eta.n
-        uno = solver(polinomio, i_uno, 0, rtol=rtol)
+        dos = solver(polinomio, i_uno, 0, rtol=rtol)
         i_cero = i_uno * ratio
         while polinomio(i_uno) * polinomio(i_cero) > 0:
             i_uno = i_cero
             i_cero = i_uno * ratio
-        cero = solver(polinomio, i_cero, i_uno, rtol=rtol)
+        tres = solver(polinomio, i_cero, i_uno, rtol=rtol)
         i_dos = 1.0 / eta.p
-        dos = solver(polinomio, 0, i_dos, rtol=rtol)
+        uno = solver(polinomio, 0, i_dos, rtol=rtol)
         i_tres = i_dos * ratio
         while polinomio(i_tres) * polinomio(i_dos) > 0:
             i_dos = i_tres
             i_tres = i_dos * ratio
-        tres = solver(polinomio, i_dos, i_tres, rtol=rtol)
+        cero = solver(polinomio, i_dos, i_tres, rtol=rtol)
 
         return Psi(cero, uno, dos, tres)

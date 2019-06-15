@@ -24,6 +24,6 @@ class W:
     @staticmethod
     def evaluar_default(t, s, parametros):
         tau = Tau.evaluar(t, parametros)
-        d_t = D.evaluar(t, parametros)
-        y = math.log((s + d_t) / d_t)
+        d_cero = parametros.d_cero
+        y = math.log((s + d_cero) / d_cero)
         return V.evaluar_default(tau, y, parametros)
