@@ -15,12 +15,12 @@ div = 0.078
 kappa = 1.2433
 nu_inf = 0.0151
 d_cero = 32.5
-nu_0 = 0.0260
+nu_cero = 0.0260
 s_cero = 25.86
 # Fin Parametros
 
 solver = optimize.brentq
 
-dejd = DEJD(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_0, d_cero, t_, solver)
+dejd = DEJD(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, d_cero, t_, solver)
 
-print(dejd.evaluar(1, s_cero))
+print(dejd.evaluar(t_, s_cero))
