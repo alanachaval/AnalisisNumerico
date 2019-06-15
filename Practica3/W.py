@@ -12,7 +12,7 @@ class W:
         self.v = v
 
     def evaluar(self, t, s):
-        tau = 0  # PENDIENTE
+        tau = 1  # PENDIENTE
         x = math.log((s + self.d_cero) / self.d_cero)
-        a = math.log((self.k + self.d(t)) / self.d(t))
-        return (self.d_t + self.k) * (math.e ** -self.r(t)) * self.v(tau, x - a)
+        a = math.log((self.k + self.d_t) / self.d_t)
+        return (self.d_t + self.k) * (math.e ** -self.r) * self.v.evaluar(tau, x - a)

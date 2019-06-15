@@ -4,7 +4,7 @@ class Psi:
         a = p
         b = (-mu + (p + lamda) * (eta.n - eta.p) - lamda * (q.p * eta.n - q.n * eta.p))
         c = -(0.5 + mu * (eta.n - eta.p) + (p + lamda) * eta.n * eta.p)
-        d = mu * eta.n * eta.p - 0.5 * (eta.n * eta.p)
+        d = mu * eta.n * eta.p - 0.5 * (eta.n - eta.p)
         e = 0.5 * eta.n * eta.p
 
         def evaluar(x):
@@ -25,3 +25,5 @@ class Psi:
             i_dos = i_tres
             i_tres = i_dos * ratio
         self.tres = solver(evaluar, i_dos, i_tres)
+
+

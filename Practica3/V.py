@@ -12,4 +12,4 @@ class V:
     def evaluar(self, tau, y):
         ln_dos = math.log(2)
         p = ln_dos / tau
-        p * sum(self.lamda[j] * self.u((j + 1) * p, y) for j in range(len(self.lamda)))
+        return p * sum(self.lamda[j] * self.u.evaluar((j + 1) * p, y) for j in range(len(self.lamda)))

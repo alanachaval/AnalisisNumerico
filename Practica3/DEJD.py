@@ -24,4 +24,4 @@ class DEJD:
         self.w = W(d_cero, d_t, k, t, r, v)
 
     def evaluar(self, t, s):
-        return self.w(t, s)
+        return self.w.evaluar(t, s)

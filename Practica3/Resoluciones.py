@@ -3,7 +3,7 @@ from scipy import optimize
 
 from Practica3.DEJD import DEJD
 
-t = 500  # valor parametros
+t = 10  # valor parametros
 
 # Inicio Parametros
 nu_0 = 0.0260
@@ -28,6 +28,6 @@ mu = -0.5 - lamda * alfa
 v_griega = nu_inf * t - (nu_0 - nu_inf) / kappa * (math.e ** (-0 * t) - 1)
 
 
-dejd = DEJD(eta_n, eta_p, mu, lamda, q_n, q_p, root_solver, d_t, r, d_, k, t, v_griega, d_cero)
+dejd = DEJD(eta_n, eta_p, mu, lamda, q_n, q_p, root_solver, d_t, r, d_, kappa, t, v_griega, d_cero)
 
 print(dejd.evaluar(0, s_cero))
