@@ -11,7 +11,6 @@ class W:
     def evaluar(t, s, parametros):
         tau = Tau.evaluar(t, parametros)
         d_cero = parametros.d_cero
-        kappa = parametros.kappa
         r = parametros.r
         t_ = parametros.t_
         k = parametros.k

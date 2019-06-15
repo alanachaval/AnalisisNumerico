@@ -20,21 +20,35 @@ d_cero = 32.5
 s_cero = 25.86
 # Fin Parametros
 
-parametros = Parametros(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, s_cero)
+parametros = Parametros(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero)
 
 parametros.rtol = 1.0e-15
 parametros.solver = optimize.brentq
-parametros.k = 50
 
-tiempo = np.linspace(3, 40, 600)
-opcion = np.zeros((len(tiempo), 1))
+# Default
+parametros.k = 50
+tiempo = np.linspace(2, 10, 600)
 default = np.zeros((len(tiempo), 1))
 
 for i, t_ in enumerate(tiempo):
     parametros.t_ = t_
-    opcion[i] = DEJD.evaluar(0, 30, parametros)
-    default[i] = DEJD.evaluar_default(0, 30, parametros)
+    default[i] = DEJD.evaluar_default(0, s_cero, parametros)
 
-plot.plot(tiempo, opcion)
+f1 = plot.figure(2)
+f1.canvas.set_window_title('Default')
 plot.plot(tiempo, default)
+
+# Opcion
+parametros.t_ = 1.2
+strike = np.linspace(8, 55, 600)
+opcion = np.zeros((len(strike), 1))
+
+for i, k in enumerate(strike):
+    parametros.k = k
+    opcion[i] = DEJD.evaluar(0, s_cero, parametros)
+
+f2 = plot.figure(1)
+f2.canvas.set_window_title('Opcion')
+plot.plot(strike, opcion)
+
 plot.show()

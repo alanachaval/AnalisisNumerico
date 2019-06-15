@@ -6,7 +6,7 @@ from Practica3.Q import Q
 
 class Parametros:
 
-    def __init__(self, eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero, s_cero):
+    def __init__(self, eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero):
         self.eta = Eta(eta_n, eta_p)
         self.lamda = lamda
         self.q = Q(q_p)
@@ -16,5 +16,4 @@ class Parametros:
         self.kappa = kappa
         self.nu = Nu(nu_cero, nu_inf)
         self.d_cero = d_cero
-        self.s_cero = s_cero
         self.mu = Mu.evaluar(self)
