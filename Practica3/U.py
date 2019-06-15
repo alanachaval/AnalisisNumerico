@@ -20,13 +20,17 @@ class U:
         c = C(self.eta, p, psi)
         a = A(self.eta, self.b, psi, c)
         if y <= 0:
-            return c.cero * (math.e ** (psi.cero * y)) + \
-                   c.uno * (math.e ** (psi.uno * y)) + \
-                   a.dos * (math.e ** (psi.dos * y)) + \
-                   a.tres * (math.e ** (psi.tres * y))
+            return (
+                    c.cero * (math.e ** (psi.cero * y)) +
+                    c.uno * (math.e ** (psi.uno * y)) +
+                    a.dos * (math.e ** (psi.dos * y)) +
+                    a.tres * (math.e ** (psi.tres * y))
+            )
         else:
-            return c.dos * (math.e ** (psi.dos * y)) + \
-                   c.tres * (math.e ** (psi.tres * y)) + \
-                   a.dos * (math.e ** (psi.dos * y)) + \
-                   a.tres * (math.e ** (psi.tres * y)) + \
-                   (math.e ** y - 1.0) / p
+            return (
+                    c.dos * (math.e ** (psi.dos * y)) +
+                    c.tres * (math.e ** (psi.tres * y)) +
+                    a.dos * (math.e ** (psi.dos * y)) +
+                    a.tres * (math.e ** (psi.tres * y)) +
+                    (math.e ** y - 1.0) / p
+            )
