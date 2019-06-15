@@ -1,12 +1,11 @@
-import numpy as np
 import matplotlib.pyplot as plot
+import numpy as np
 from scipy import optimize
 
 from Practica3.DEJD import DEJD
-
-# Inicio Parametros
 from Practica3.Parametros import Parametros
 
+# Inicio Parametros
 eta_n = 0.1181
 eta_p = 0.0443
 lamda = 162.5382
@@ -25,16 +24,15 @@ parametros = Parametros(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu
 
 parametros.rtol = 1.0e-15
 parametros.solver = optimize.brentq
+parametros.k = 50
 
-tiempo = np.linspace(1, 40, 600)
+tiempo = np.linspace(3, 40, 600)
 opcion = np.zeros((len(tiempo), 1))
 default = np.zeros((len(tiempo), 1))
 
 for i, t_ in enumerate(tiempo):
-    # dejd = DEJD(parametros)
-    # opcion[i] = dejd.evaluar(0, s_cero)
-    # default[i] = dejd.evaluarDefault(0, s_cero)
     parametros.t_ = t_
+    opcion[i] = DEJD.evaluar(0, 30, parametros)
     default[i] = DEJD.evaluar_default(0, 30, parametros)
 
 plot.plot(tiempo, opcion)

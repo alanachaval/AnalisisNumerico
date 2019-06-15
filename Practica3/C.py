@@ -10,10 +10,8 @@ class C:
         self.tres = tres
 
     @staticmethod
-    def evaluar(parametros):
-        psi = parametros.psi
+    def evaluar(p, psi, parametros):
         eta = parametros.eta
-        p = parametros.p
 
         coeficientes = np.array(
             [(1, 1, -1, -1),

@@ -8,8 +8,7 @@ class A:
         self.tres = tres
 
     @staticmethod
-    def evaluar(parametros):
-        psi = parametros.psi
+    def evaluar(psi, c, parametros):
         eta = parametros.eta
         b = parametros.b
 

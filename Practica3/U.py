@@ -7,19 +7,11 @@ from Practica3.Psi import Psi
 
 class U:
 
-    #    def __init__(self, eta, mu, lamda, q, b, solver, rtol):
-    #        self.eta = eta
-    #        self.mu = mu
-    #        self.lamda = lamda
-    #        self.q = q
-    #        self.b = b
-    #        self.solver = solver
-    #        self.rtol = rtol
-
-    def evaluar(self, p, y):
-        psi = Psi(self.eta, self.mu, self.lamda, self.q, p, self.solver, self.rtol)
-        c = C(self.eta, p, psi)
-        a = A(self.eta, self.b, psi, c)
+    @staticmethod
+    def evaluar(p, y, parametros):
+        psi = Psi.evaluar(p, parametros)
+        c = C.evaluar(p, psi, parametros)
+        a = A.evaluar(psi, c, parametros)
         if y <= 0:
             return (
                     c.cero * (math.e ** (psi.cero * y)) +

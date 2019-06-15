@@ -1,12 +1,12 @@
-from Practica3.V import V
+from Practica3.W import W
 
 
 class DEJD:
 
     @staticmethod
-    def evaluar(self, t, s, parametros):
-        return self.w.evaluar(t, s, parametros)
+    def evaluar(t, s, parametros):
+        return W.evaluar(t, s, parametros)
 
     @staticmethod
     def evaluar_default(t, s, parametros):
-        return V.evaluar_default(t, s, parametros)
+        return W.evaluar_default(t, s, parametros)

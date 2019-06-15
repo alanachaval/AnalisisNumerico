@@ -1,6 +1,3 @@
-from Practica3.Mu import Mu
-
-
 class Psi:
 
     def __init__(self, cero, uno, dos, tres):
@@ -11,7 +8,7 @@ class Psi:
 
     @staticmethod
     def evaluar(p, parametros):
-        mu = Mu.evaluar(parametros)
+        mu = parametros.mu
         lamda = parametros.lamda
         eta = parametros.eta
         q = parametros.q
