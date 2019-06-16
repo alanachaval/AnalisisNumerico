@@ -19,26 +19,30 @@ class Psi:
         d = mu * eta.n * eta.p - 0.5 * (eta.n - eta.p)
         e = 0.5 * eta.n * eta.p
 
-        def polinomio(x):
+        def func(x):
             return e * (x ** 4) + d * (x ** 3) + c * (x ** 2) + b * x + a
+
+        def fprime(x):
+            return 4 * e * (x ** 3) + 3 * d * (x ** 2) + 2 * c * x + b
 
         solver = parametros.solver
         rtol = parametros.rtol
+        maxiter = parametros.maxiter
 
         ratio = 10
         i_uno = -1.0 / eta.n
-        dos = solver(polinomio, i_uno, 0, rtol=rtol)
+        dos = solver(func, i_uno, 0, rtol, fprime, maxiter)
         i_cero = i_uno * ratio
-        while polinomio(i_uno) * polinomio(i_cero) > 0:
+        while func(i_uno) * func(i_cero) > 0:
             i_uno = i_cero
             i_cero = i_uno * ratio
-        tres = solver(polinomio, i_cero, i_uno, rtol=rtol)
+        tres = solver(func, i_cero, i_uno, rtol, fprime, maxiter)
         i_dos = 1.0 / eta.p
-        uno = solver(polinomio, 0, i_dos, rtol=rtol)
+        uno = solver(func, 0, i_dos, rtol, fprime, maxiter)
         i_tres = i_dos * ratio
-        while polinomio(i_tres) * polinomio(i_dos) > 0:
+        while func(i_tres) * func(i_dos) > 0:
             i_dos = i_tres
             i_tres = i_dos * ratio
-        cero = solver(polinomio, i_dos, i_tres, rtol=rtol)
+        cero = solver(func, i_dos, i_tres, rtol, fprime, maxiter)
 
         return Psi(cero, uno, dos, tres)

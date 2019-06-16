@@ -1,13 +1,20 @@
+import sys
+import time
+
+import math
 import matplotlib.pyplot as plot
 import numpy as np
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
-from scipy import optimize
 
 from Practica3.DEJD import DEJD
 from Practica3.Parametros import Parametros
 
 # Inicio Parametros
+from Practica3.Psi import Psi
+from Practica3.Raices import Raices
+from Practica3.Tau import Tau
+
 eta_n = 0.1181
 eta_p = 0.0443
 lamda = 162.5382
@@ -20,12 +27,43 @@ nu_cero = 0.0260
 nu_inf = 0.0151
 d_cero = 32.5
 s_cero = 25.86
-# Fin Parametros
 
 parametros = Parametros(eta_n, eta_p, lamda, q_p, r, r_, div, kappa, nu_cero, nu_inf, d_cero)
+# Fin Parametros
+
+print()
+print("Ejercicio 2:")
+
+parametros.t_ = 30
+parametros.maxiter = 400
+rtols = [1.0e-3, 1.0e-6, 1.0e-9, 1.0e-12, 1.0e-15]
+solvers = [Raices.newton_rapson, Raices.bisect, Raices.brentq]
+solvers_names = ["newton_rapson", "bisect", "brentq"]
+
+mejor_solver = 0
+mejor_tiempo = sys.maxsize
+p = 10 * math.log(2) / Tau.evaluar(0, parametros)
+
+for i, solver in enumerate(solvers):
+    parametros.solver = solver
+    print("Solver:", solvers_names[i])
+    inicio = time.time_ns()
+    for j, rtol in enumerate(rtols):
+        parametros.rtol = rtol
+        for k in range(1000):
+            Psi.evaluar(p, parametros)
+    fin = time.time_ns()
+    tiempo = fin - inicio
+    print("Tiempo:", tiempo)
+    if tiempo < mejor_tiempo:
+        mejor_tiempo = tiempo
+        mejor_solver = i
+
+print("El solver con mejor rendimiento es:", solvers_names[mejor_solver])
 
 parametros.rtol = 1.0e-15
-parametros.solver = optimize.brentq
+parametros.maxiter = 400
+parametros.solver = Raices.brentq
 
 # Default
 parametros.k = 50
