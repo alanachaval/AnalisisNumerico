@@ -8,7 +8,7 @@ class Raices:
         x = (a + b) / 2
         i = 0
         x_new = 0
-        while abs(func(x) > rtol) and i < maxiter:
+        while abs(func(x)) > rtol and i < maxiter:
             i += 1
             x_p = fprime(x)
             if x_p != 0:
