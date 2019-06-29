@@ -2,14 +2,14 @@ from math import cos
 from math import sin
 import matplotlib.pyplot as plt
 
-u = 200
+n = 200
 h = 0.01
 t = -1
 x = 3
 T = [t]
 X = [x]
 
-for k in range(u):
+for i in range(n):
     x_1 = cos(t) - sin(x) + t ** 2
     x_2 = -sin(t) - x_1 * cos(x) + 2 * t
     x_3 = -cos(t) - x_2 * cos(x) - (x_1 ** 2) * sin(x) + 2
