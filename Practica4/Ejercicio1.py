@@ -21,4 +21,6 @@ for i in range(n):
     T.append(t)
 
 plt.plot(T, X)
+plt.xlabel('t')
+plt.ylabel('x')
 plt.show()

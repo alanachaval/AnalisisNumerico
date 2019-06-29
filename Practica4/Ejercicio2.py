@@ -23,8 +23,10 @@ f = lambda t, x: (t ** -2) * (t * x - (x ** 2))
 x = 2
 t = 1
 h = 0.005
-n = int(3 / h)
+n = int((3 - 1) / h)
 T, X = ringe_kuta(f, x, t, h, n)
 
 plt.plot(T, X)
+plt.xlabel('t')
+plt.ylabel('x')
 plt.show()
