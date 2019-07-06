@@ -55,17 +55,31 @@ def g_3(x):
 
 
 def g_4(x):
-    return 400 * np.pi / 4 + x * (np.pi / 2)
+    return 400 * (np.pi / 4 + x * (np.pi / 2))
 
 
 def g_5(x):
     return math.sin(x * np.pi * 4) ** 2
 
 
-heat_function(g_1, 0.01, 0.01, 0.5, 'math.sin(x * np.pi)', 1)
-heat_function(g_2, 0.01, 0.01, 0.5, 'math.e ** (x * math.sin(x * np.pi))', 2)
-heat_function(g_3, 0.01, 0.01, 0.5, '400 * math.e ** (x * math.sin(np.pi / 4 + x * (np.pi / 2)))', 3)
-heat_function(g_4, 0.01, 0.01, 0.5, '400 * np.pi / 4 + x * (np.pi / 2)', 4)
-heat_function(g_5, 0.01, 0.01, 0.5, 'math.sin(x * np.pi * 4) ** 2', 5)
+def g_6(x):
+    return math.e ** (2 * x * np.pi)
+
+
+def g_7(x):
+    return math.sin(x * 6 * np.pi) + 1
+
+
+_h = 0.01
+_k = 0.001
+_t = 0.2
+
+heat_function(g_1, _h, _k, _t, 'math.sin(x * np.pi)', 1)
+heat_function(g_2, _h, _k, _t, 'math.e ** (x * math.sin(x * np.pi))', 2)
+heat_function(g_3, _h, _k, _t, '400 * math.e ** (x * math.sin(np.pi / 4 + x * (np.pi / 2)))', 3)
+heat_function(g_4, _h, _k, _t, '400 * (np.pi / 4 + x * (np.pi / 2))', 4)
+heat_function(g_5, _h, _k, _t, 'math.sin(x * np.pi * 4) ** 2', 5)
+heat_function(g_6, _h, _k, _t, 'math.e ** (2 * x * np.pi)', 6)
+heat_function(g_7, _h, _k, _t, 'math.sin(x * 6 * np.pi) + 1', 7)
 
 plt.show()
