@@ -21,7 +21,7 @@ def heat_function(g, h, k, t_max, nombre, fig_id):
     for index, x_i in enumerate(x):
         u_j[index] = g(x_i)
     u.append(u_j)
-    t = np.linspace(0, t_max, int(1 / k), endpoint=True)
+    t = np.linspace(0, t_max, int(t_max / k), endpoint=True)
     for t_j in range(len(t) - 1):
         u_j = np.linalg.solve(a, u_j)
         u.append(u_j)
